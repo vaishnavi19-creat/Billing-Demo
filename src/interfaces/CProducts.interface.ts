@@ -14,17 +14,6 @@ export interface IProduct {
   keywords: string; 
 }
 
-export interface IClothingProduct extends IProduct {
-    color?: string;                
-    product_size?: string;          
-    fabric?: string;                
-    cloth_type?: string;            
-    pattern?: string;               
-}
-
-
-
-
 
 
 

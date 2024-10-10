@@ -2,7 +2,6 @@ import { CProductEntity } from "../db/entities/CProducts.entities";
 import { UnitConversion } from "../db/entities/UnitConversion.entities";
 import { UnitTypeEntities } from "../db/entities/UnitType.entities";
 import { getRepository } from "typeorm";
-import { CClothingProductEntity } from "../db/entities/CClothingProduct.entities";
 
 
 export class CProductService {

@@ -21,6 +21,9 @@ class CProductRouter extends CBaseRouter {
 
     postRoutes() {
         console.log('In postRoute() from CProductRouter');
+        this.router.post('/product', CProductValidator.validateProduct(), CProductController.addProduct);
+        
+        
     }
 
     putRoutes() {

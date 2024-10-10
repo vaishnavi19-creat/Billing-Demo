@@ -3,7 +3,6 @@ import { validationResult } from "express-validator";
 import { CProductService } from "../services/CProducts.service";
 import { CCustomErrors } from "../helpers/CCustomErrors.helper";
 import { errorTypeEnum } from "../enums/errorType.enum";
-import { CClothingProductEntity } from "../db/entities/CClothingProduct.entities";
 
 const productService = new CProductService();
 

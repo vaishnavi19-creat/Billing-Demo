@@ -1,7 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToMany } from "typeorm";
 import { CShopEntities } from "./CShop.entities";
 import { UnitTypeEntities } from "./UnitType.entities";
-import { CClothingProductEntity } from "./CClothingProduct.entities";
 
 @Entity({ name: "products" })
 export class CProductEntity {
@@ -62,9 +61,7 @@ export class CProductEntity {
     @JoinColumn({ name: "unit_id" })
     unit: UnitTypeEntities;
 
-    @OneToMany(() => CClothingProductEntity, (clothing) => clothing.product)
-    clothingDetails: CClothingProductEntity[]; //added for clothing
-}
+  }
 
 
 

@@ -57,42 +57,42 @@ export class VendorModel {
         }
     }
 
-    // public async getVendorDetailsByName({ vendorName }: { vendorName: string; }): Promise<getVendorDetailsByEmailResp | null> {  
-    //     try {
-    //         console.log('Jumped in VendorModel => getVendorDetailsByName()');
-    //         return await this.repository.findOne({
-    //             select: {
-    //                 id: true,
-    //                 vendorName: true,
-    //                 vendorOwnerName: true
-    //             },
-    //             where: {
-    //                 vendorName: vendorName,
-    //             }
-    //         });
-    //     } catch (error) {
-    //         throw new Error(error);
-    //     }
-    // }
+    public async getVendorDetailsByName({ vendorName }: { vendorName: string; }): Promise<getVendorDetailsByEmailResp | null> {  
+        try {
+            console.log('Jumped in VendorModel => getVendorDetailsByName()');
+            return await this.repository.findOne({
+                select: {
+                    id: true,
+                    vendorName: true,
+                    vendorOwnerName: true
+                },
+                where: {
+                    vendorName: vendorName,
+                }
+            });
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
 
-    // public async getVendorDetailsByMobileNumber(vendorMobileNo: string): Promise<getVendorDetailsByEmailResp | null> {  
-    //     try {
-    //         console.log('Jumped in VendorModel => getVendorDetailsByMobileNumber()'); 
-    //         return await this.repository.findOne({
-    //             select: {
-    //                 id: true,
-    //                 vendorName: true,
-    //                 vendorOwnerName: true,
-    //                 vendorMobileNo: true
-    //             },
-    //             where: {
-    //                 vendorMobileNo: vendorMobileNo  
-    //             }
-    //         });
-    //     } catch (error) {
-    //         throw new Error(error);
-    //     }
-    // }
+    public async getVendorDetailsByMobileNumber(vendorMobileNo: string): Promise<getVendorDetailsByEmailResp | null> {  
+        try {
+            console.log('Jumped in VendorModel => getVendorDetailsByMobileNumber()'); 
+            return await this.repository.findOne({
+                select: {
+                    id: true,
+                    vendorName: true,
+                    vendorOwnerName: true,
+                    vendorMobileNo: true
+                },
+                where: {
+                    vendorMobileNo: vendorMobileNo  
+                }
+            });
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
 
     public async getVendorDetailsByEmailId(vendorEmailId: string): Promise<getVendorDetailsByEmailResp | null> {  
         try {

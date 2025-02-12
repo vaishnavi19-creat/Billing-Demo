@@ -44,21 +44,20 @@ export class CProductService {
       // Use AppDataSource to ensure the repository  the initialized connection
       const productRepository = AppDataSource.getRepository(CProductEntity);
   
-      // Fetch the product using the repository
       const product = await productRepository.findOne({
         where: { name: productName },
         relations: ['shop', 'unit'], 
       });
   
-      // Return the product if found, otherwise return null
       return product;
     } catch (error) {
-      // Handle any unexpected errors
       throw new Error(`Error fetching product details by name: ${error.message}`);
     }
   }
+    async getProductById(id: number) {
+        return await this.productRepo.findOne({ where: { id: `LIKE ${id}` } });
+    }
 
-  // Update product by ID
   async updateProductById(productId: number, updatedData: Partial<CProductEntity>): Promise<CProductEntity | null> {
     try {
         //  Ensure ID is a valid integer

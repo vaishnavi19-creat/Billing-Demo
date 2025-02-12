@@ -7,16 +7,11 @@ import { CCustomErrors } from "../helpers/CCustomErrors.helper";
 import { errorTypeEnum } from "../enums/errorType.enum";
 
 export class CProductService {
-  productModel: CProductModel;
- 
+    private productRepo = getRepository(CProductEntities);
 
-  constructor() {
-    this.productModel = new CProductModel(); // Ensure it is instantiated
-  }
 
   async addProduct(productData: any): Promise<CProductEntity> {
     try {
-        // Call the model method
         const savedProduct = await this.productModel.addProduct(productData);
 
         if (!savedProduct || typeof savedProduct !== "object") {
@@ -31,6 +26,9 @@ export class CProductService {
         );
     }
 }
+
+ 
+
 
 
   // // Fetch product details by name

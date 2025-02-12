@@ -14,24 +14,26 @@ class CProductRouter extends CBaseRouter {
     getRoutes() {
         console.log('In getRoute() from CProductRouter');
         // Route to get product details by name    
-        this.router.get('/product/getProductDetailsByName/:productName',CProductValidator.validateProductsByName(),CProductController.getProductDetailsByName);
-        this.router.get("/getAllProducts", CProductController.getAllProducts);   //getAllProducts?limit=-5&pageNumber=1
+        this.router.get("/getAllProducts", CProductController.getAllProducts);
+        this.router.get('/product/getProductDetailsByName/:productName', CProductValidator.validateProductsByName(), CProductController.getProductDetailsByName);
+
     }
 
     postRoutes() {
         console.log('In postRoute() from CProductRouter');
         // Add a new product - validation required
-        this.router.post('/product', CProductValidator.validateProduct(), CProductController.addProduct);
+        this.router.post('/product', CProductValidator.validateProduct, CProductController.addProduct);
         this.router.post('/product/filter', CProductController.filterProduct);
         // for reduce product quamntity
-        console.log(CProductController.reduceQuantityOnInvoice); // This should log the function definition
-        this.router.post("/reduce-quantity",CProductValidator.reduceProductQuantityValidator(),CProductController.reduceQuantityOnInvoice); 
+        console.log(CProductController.reduceQuantityOnInvoice); 
+        this.router.post("/reduce-quantity", CProductController.reduceQuantityOnInvoice);
     }
 
     putRoutes() {
         console.log('In putRoute() from CProductRouter');
         // Update product details - validation required
-        this.router.put('/product/:productid', CProductValidator.validateProduct(), CProductController.updateProduct);
+        this.router.put('/product/:ProductId', CProductValidator.validateProduct(), CProductController.updateProduct);
+
     }
 
     patchRoutes() {
@@ -42,7 +44,7 @@ class CProductRouter extends CBaseRouter {
 
     deleteRoutes() {
         console.log('In deleteRoute() from CProductRouter');
-        this.router.delete('/product/:productid', CProductController.deleteProduct);
+        this.router.delete('/product/:productid', CProductController.DeleteProduct);
     }
 }
 
